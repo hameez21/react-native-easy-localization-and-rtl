@@ -4,6 +4,7 @@ It helps to change language and layout easily using predefined styles.
 
 #Getting Started
 `yarn add https://github.com/hameez21/react-native-easy-localization-and-rtl`
+
 `npm i --save https://github.com/hameez21/react-native-easy-localization-and-rtl`
 
 This Library use react-native-localization.
