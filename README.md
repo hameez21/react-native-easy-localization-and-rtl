@@ -22,4 +22,4 @@ react-native link react-native-localization
 
 for manual installation guide https://github.com/stefalda/ReactNativeLocalization
 
-#Usage
+# Usage
