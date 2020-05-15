@@ -1,0 +1,25 @@
+{
+  "name": "react-native-easy-localization-and-rtl",
+  "version": "1.0.0",
+  "description": "A simple module to add localization and RTL support to your react native app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "rtl",
+    "localization",
+    "android",
+    "ios",
+    "language"
+  ],
+  "author": "Hameez Rehman",
+  "license": "MIT",
+  "devDependencies": {
+    "metro-react-native-babel-preset": "^0.59.0"
+  },
+  "dependencies": {
+    "react-native-localization": "^2.1.6"
+  }
+}
