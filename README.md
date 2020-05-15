@@ -1,11 +1,11 @@
-#React Native Easy Localization and RTL
+# React Native Easy Localization and RTL
+
 This library is for creating multi-Language supported apps easily on android and ios using react native.
 It helps to change language and layout easily using predefined styles.
 
-#Getting Started
-`yarn add https://github.com/hameez21/react-native-easy-localization-and-rtl`
+# Getting Started
 
-`npm i --save https://github.com/hameez21/react-native-easy-localization-and-rtl`
+`yarn add https://github.com/hameez21/react-native-easy-localization-and-rtl \n npm i --save https://github.com/hameez21/react-native-easy-localization-and-rtl`
 
 This Library use react-native-localization.
 #Installation
