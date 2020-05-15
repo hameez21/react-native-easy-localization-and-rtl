@@ -10,7 +10,7 @@ It helps to change language and layout easily using predefined styles.
 `npm i --save https://github.com/hameez21/react-native-easy-localization-and-rtl`
 
 This Library use react-native-localization.
-#Installation
+# Installation
 
 ```
 #react-native >= 0.60
