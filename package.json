@@ -12,7 +12,8 @@
     "localization",
     "android",
     "ios",
-    "language"
+    "language",
+    "i18n"
   ],
   "author": "Hameez Rehman",
   "license": "MIT",

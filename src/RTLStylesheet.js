@@ -20,6 +20,9 @@ export default class StyleSheetFactory {
       text: {
         textAlign: isRTL ? "right" : "left",
       },
+      flipHorizontal: {
+        transform: isRTL ? [{ rotateY: "180deg" }] : [],
+      },
     });
   }
   /** @description get the RTL state of current lanuage for the app.
