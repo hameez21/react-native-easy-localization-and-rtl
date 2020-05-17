@@ -19,7 +19,7 @@
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.59.0"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react-native-localization": "^2.1.6"
   }
 }
