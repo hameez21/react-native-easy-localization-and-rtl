@@ -21,16 +21,16 @@ cd ios && pod install && cd ..
 react-native link react-native-localization
 ```
 
-for manual installation guide https://github.com/stefalda/ReactNativeLocalization
+**for manual installation guide https://github.com/stefalda/ReactNativeLocalization**
 
 # Usage
 
-```
+```js
 import {LocalizedStrings, RTL} from 'react-native-easy-localization-and-rtl';
 
 ```
 
-```
+```js
 //Set your texts and translations here
 
 const i18n = new LocalizedStrings({
@@ -155,6 +155,59 @@ render() {
 
 ```
 
+# APIs
+
+## All Functions 
+
+### LocalizedStrings functions
+* setLanguage(languageCode) - to force manually a particular language
+* getLanguage() - to get the current displayed language
+* getInterfaceLanguage() - to get the current device interface language
+* formatString() - to format the passed string replacing its placeholders with the other arguments strings
+* setContent(languageObject) - overwrites the current language obj
+**for further details visit https://github.com/stefalda/ReactNativeLocalization**
+
+
+### RTL functions
+* getSheet(LocalizedStrings) - get stylesheet for the current language
+* isRTL(LocalizedStrings) - get RTL status : boolean
+
+## Examples
+
+### Format String Examples
+```js
+  en:{
+    bread:"bread",
+    butter:"butter",
+    question:"I'd like {0} and {1}, or just {0}"
+  }
+  ...
+  i18n.formatString(strings.question, strings.bread, strings.butter)
+```
+### Overwrite Locale
+You might have default localized in the build but then download the latest localization strings from a server. Use setContent to overwrite the whole object. NOTE that this will remove all other localizations if used.
+
+```js
+i18n.setContent({
+  en:{
+    how:"How do you want your egg todajsie?",
+    boiledEgg:"Boiled eggsie",
+    softBoiledEgg:"Soft-boiled egg",
+    choice:"How to choose the egg"
+  }
+})
 ```
 
+You can also only overwrite a specific language using
+
+```
+i18n.setContent(Object.assign({},strings.getContent(),
+{
+  en:{
+    how:"How do you want your egg todajsie?",
+    boiledEgg:"Boiled eggsie",
+    softBoiledEgg:"Soft-boiled egg",
+    choice:"How to choose the egg"
+  }
+}));
 ```
