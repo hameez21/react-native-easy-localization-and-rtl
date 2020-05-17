@@ -3,6 +3,8 @@
 This library is for creating multi-Language supported apps easily on android and ios using react native.
 It helps to change language and layout easily using predefined styles.
 
+**Lets build an RTL layout stylesheet library for ease of use**
+
 # Getting Started
 
 `yarn add react-native-localization https://github.com/hameez21/react-native-easy-localization-and-rtl`
@@ -26,8 +28,7 @@ react-native link react-native-localization
 # Usage
 
 ```js
-import {LocalizedStrings, RTL} from 'react-native-easy-localization-and-rtl';
-
+import { LocalizedStrings, RTL } from "react-native-easy-localization-and-rtl";
 ```
 
 ```js
@@ -157,25 +158,27 @@ render() {
 
 # APIs
 
-## All Functions 
+## All Functions
 
 ### LocalizedStrings functions
-* setLanguage(languageCode) - to force manually a particular language
-* getLanguage() - to get the current displayed language
-* getInterfaceLanguage() - to get the current device interface language
-* formatString() - to format the passed string replacing its placeholders with the other arguments strings
-* setContent(languageObject) - overwrites the current language obj
+
+- setLanguage(languageCode) - to force manually a particular language
+- getLanguage() - to get the current displayed language
+- getInterfaceLanguage() - to get the current device interface language
+- formatString() - to format the passed string replacing its placeholders with the other arguments strings
+- setContent(languageObject) - overwrites the current language obj
 
 **for further details visit https://github.com/stefalda/ReactNativeLocalization**
 
-
 ### RTL functions
-* getSheet(LocalizedStrings) - get stylesheet for the current language
-* isRTL(LocalizedStrings) - get RTL status : boolean
+
+- getSheet(LocalizedStrings) - get stylesheet for the current language
+- isRTL(LocalizedStrings) - get RTL status : boolean
 
 ## Examples
 
 ### Format String Examples
+
 ```js
   en:{
     bread:"bread",
@@ -185,18 +188,20 @@ render() {
   ...
   i18n.formatString(strings.question, strings.bread, strings.butter)
 ```
+
 ### Overwrite Locale
+
 You might have default localized in the build but then download the latest localization strings from a server. Use setContent to overwrite the whole object. NOTE that this will remove all other localizations if used.
 
 ```js
 i18n.setContent({
-  en:{
-    how:"How do you want your egg todajsie?",
-    boiledEgg:"Boiled eggsie",
-    softBoiledEgg:"Soft-boiled egg",
-    choice:"How to choose the egg"
-  }
-})
+  en: {
+    how: "How do you want your egg todajsie?",
+    boiledEgg: "Boiled eggsie",
+    softBoiledEgg: "Soft-boiled egg",
+    choice: "How to choose the egg",
+  },
+});
 ```
 
 You can also only overwrite a specific language using
