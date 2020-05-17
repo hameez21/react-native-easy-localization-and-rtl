@@ -165,6 +165,7 @@ render() {
 * getInterfaceLanguage() - to get the current device interface language
 * formatString() - to format the passed string replacing its placeholders with the other arguments strings
 * setContent(languageObject) - overwrites the current language obj
+
 **for further details visit https://github.com/stefalda/ReactNativeLocalization**
 
 
