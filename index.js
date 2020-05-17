@@ -1,4 +1,4 @@
-import { i18n, setLanguage, setLocalization } from "./src/Localization";
 import RTL from "./src/RTLStylesheet";
+import LocalizedStrings from "react-native-localization";
 
-export { i18n, setLanguage, setLocalization, RTL };
+export { LocalizedStrings, RTL };

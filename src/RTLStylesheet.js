@@ -1,10 +1,14 @@
-import { i18n } from "./Localization";
+import LocalizedStrings from "react-native-localization";
 import { StyleSheet } from "react-native";
 
 const RTLLang = ["ar", "ur", "fa"];
 
 export default class StyleSheetFactory {
-  static getSheet() {
+  /** @description get the RTL styles for the app.
+   * @param {LocalizedStrings} LocalizedStrings  object containing languages and words.
+   *
+   */
+  static getSheet(i18n) {
     let isRTL = RTLLang.includes(i18n.getLanguage());
     return StyleSheet.create({
       containerColumn: {
@@ -18,7 +22,12 @@ export default class StyleSheetFactory {
       },
     });
   }
-  static isRTL() {
+  /** @description get the RTL state of current lanuage for the app.
+   * @param {LocalizedStrings} LocalizedStrings  object containing languages and words.
+   *
+   */
+
+  static isRTL(i18n) {
     return RTLLang.includes(i18n.getLanguage);
   }
 }
