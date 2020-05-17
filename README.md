@@ -24,3 +24,137 @@ react-native link react-native-localization
 for manual installation guide https://github.com/stefalda/ReactNativeLocalization
 
 # Usage
+
+```
+import {LocalizedStrings, RTL} from 'react-native-easy-localization-and-rtl';
+
+```
+
+```
+//Set your texts and translations here
+
+const i18n = new LocalizedStrings({
+  en: {
+    Hello: 'Hello User',
+    Desc: 'See how easy it is to implement localization and RTL Support',
+  },
+  ar: {
+    Hello: 'مرحبًا بالمستخدم',
+    Desc: 'شاهد مدى سهولة تنفيذ التوطين والدعم من اليمين إلى اليسار',
+  },
+  es: {
+    Hello: 'Hola usuaria',
+    Desc:
+      'Vea lo fácil que es implementar la localización y el soporte de derecha a izquierda',
+  },
+});
+
+//Set State is must to rerender UI for the change layout redux can also be used similarly
+changeLanguage = (lang) => {
+    i18n.setLanguage(lang);
+
+    this.setState({lang});
+  };
+
+//redux action, sample code using thunk as middleware
+export const setLanguage(lang) => {
+return async dispatch => {
+i18n.setLanguage(lang)
+dispatch({
+    type:SET_LANG
+    payload:lang
+})
+}
+}
+
+render() {
+    const RTLStyles = RTL.getSheet(i18n);
+    return (
+      <SafeAreaView>
+        <View
+          style={[{height: '100%', width: '100%'}, RTLStyles.containerColumn]}>
+          <Text style={[{fontSize: 18}, RTLStyles.text]}>{i18n.Hello}</Text>
+
+          <View
+            style={{
+              flex: 1,
+              width: '50%',
+              marginBottom: 20,
+              backgroundColor: 'red',
+            }}></View>
+          <View
+            style={{
+              flex: 1,
+              width: '50%',
+              marginBottom: 20,
+              backgroundColor: 'red',
+            }}></View>
+          <View
+            style={{
+              flex: 1,
+              width: '50%',
+              marginBottom: 20,
+              backgroundColor: 'red',
+            }}></View>
+          <View
+            style={{
+              flex: 1,
+              width: '50%',
+              marginBottom: 20,
+              backgroundColor: 'red',
+            }}></View>
+          <View
+            style={[{width: '100%', height: '20%'}, RTLStyles.containerRow]}>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                height: '100%',
+                marginHorizontal: 8,
+                backgroundColor: 'green',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              onPress={() => {
+                this.changeLanguage('en');
+              }}>
+              <Text>en</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                height: '100%',
+                marginHorizontal: 8,
+                backgroundColor: 'green',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              onPress={() => {
+                this.changeLanguage('ar');
+              }}>
+              <Text>ar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                flex: 1,
+                marginHorizontal: 8,
+                backgroundColor: 'green',
+                height: '100%',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+              onPress={() => {
+                this.changeLanguage('es');
+              }}>
+              <Text>es</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+```
+
+```
+
+```
