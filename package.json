@@ -6,6 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hameez21/react-native-easy-localization-and-rtl.git"
+  },
+  "author": "Syed Hameez ur Rehman <hameez.rehman21@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/hameez21/react-native-easy-localization-and-rtl",
   "keywords": [
     "react-native",
     "rtl",
@@ -13,10 +20,10 @@
     "android",
     "ios",
     "language",
-    "i18n"
+    "internationalization",
+    "javascript",
+    "typescript"
   ],
-  "author": "Hameez Rehman",
-  "license": "MIT",
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.59.0"
   },
