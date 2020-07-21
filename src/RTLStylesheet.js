@@ -20,6 +20,15 @@ export default class StyleSheetFactory {
       text: {
         textAlign: isRTL ? "right" : "left",
       },
+      containerColumnInverse: {
+        alignItems: !isRTL ? "flex-end" : "flex-start",
+      },
+      containerRowInverse: {
+        flexDirection: !isRTL ? "row-reverse" : "row",
+      },
+      textInverse: {
+        textAlign: !isRTL ? "right" : "left",
+      },
       flipHorizontal: {
         transform: isRTL ? [{ rotateY: "180deg" }] : [],
       },
