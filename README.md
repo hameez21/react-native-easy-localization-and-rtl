@@ -1,3 +1,5 @@
+# Readme Is Currently Outdated
+
 # React Native Easy Localization and RTL
 
 This library is for creating multi-Language supported apps easily on android and ios using react native.
@@ -28,7 +30,7 @@ react-native link react-native-localization
 # Usage
 
 ```js
-import { LocalizedStrings, RTL } from "react-native-easy-localization-and-rtl";
+import {} from "react-native-easy-localization-and-rtl";
 ```
 
 ```js
