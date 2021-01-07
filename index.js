@@ -1,4 +1,15 @@
-import RTL from "./src/RTLStylesheet";
-import LocalizedStrings from "react-native-localization";
+import {
+  LocalizationString,
+  RTLProvider,
+  initializeRTL,
+  useRtlContext,
+  withRtl,
+} from "./src/index";
 
-export { LocalizedStrings, RTL };
+export {
+  LocalizationString,
+  RTLProvider,
+  initializeRTL,
+  useRtlContext,
+  withRtl,
+};
