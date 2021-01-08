@@ -61,7 +61,7 @@ export default class RTLProvider extends Component<Props, State> {
     });
     RTLProvider.localizedString.setLanguage(lang);
   };
-  static localizedString: LocalizedStrings = {};
+  static localizedString: LocalizedStrings = null;
   static setLocalizedString(localizedString) {
     RTLProvider.localizedString = localizedString;
   }
