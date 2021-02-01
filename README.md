@@ -179,13 +179,14 @@ export default function App() {
 ## Available Style Object
 
 **RtlStyles**
-containerColumn
-containerRow  
-text
-containerColumnInverse
-containerRowInverse
-textInverse
-flipHorizontal
+
+- containerColumn
+- containerRow
+- text
+- containerColumnInverse
+- containerRowInverse
+- textInverse
+- flipHorizontal
 
 # APIs
 
@@ -239,14 +240,15 @@ strings.setContent({
 
 You can also only overwrite a specific language using
 
-```
-strings.setContent(Object.assign({},strings.getContent(),
-{
-  en:{
-    how:"How do you want your egg todajsie?",
-    boiledEgg:"Boiled eggsie",
-    softBoiledEgg:"Soft-boiled egg",
-    choice:"How to choose the egg"
-  }
-}));
+```js
+strings.setContent(
+  Object.assign({}, strings.getContent(), {
+    en: {
+      how: "How do you want your egg todajsie?",
+      boiledEgg: "Boiled eggsie",
+      softBoiledEgg: "Soft-boiled egg",
+      choice: "How to choose the egg",
+    },
+  })
+);
 ```
