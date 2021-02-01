@@ -1,8 +1,6 @@
-# Readme Is Currently Outdated
-
 # React Native Easy Localization and RTL
 
-This library is for creating multi-Language supported apps easily on android and ios using react native.
+This library is for creating multi-Language supported apps easily on android and ios using react native without any reloads.
 It helps to change language and layout easily using predefined styles.
 
 **Lets build an RTL layout stylesheet library for ease of use**
@@ -30,139 +28,172 @@ react-native link react-native-localization
 # Usage
 
 ```js
-import {} from "react-native-easy-localization-and-rtl";
+import { RTLProvider } from "react-native-easy-localization-and-rtl";
+// wrap your app in this provider
+<RTLProvider>
+  <App />
+</RTLProvider>;
 ```
 
-```js
-//Set your texts and translations here
+### Setting up Language Object
 
-const i18n = new LocalizedStrings({
+**There are two ways u can setup the Language Object**
+
+**1. Initializing RTLProvider with your own version of Localized String (Recommended)**
+Using **react-native-localization** lib you can create the localized strings and pass it in this library.
+
+```js
+//LocalizedConstants.js
+
+import { initializeRTL } from "react-native-easy-localization-and-rtl";
+import LocalizedStrings from "react-native-localization";
+
+const localizedString = new LocalizedStrings({
   en: {
-    Hello: 'Hello User',
-    Desc: 'See how easy it is to implement localization and RTL Support',
+    region: "Select Your Region",
+    loginMsg: " Kindly enter email address and password to Login",
+    noAccount: "Don’t have an account? Click Sign Up button",
+    forgotPassword: "Forgot Password",
+    login: "Login",
+    signup: "Sign up",
+    email: "Email Address",
+    password: "Password",
+    addPhoto: "Add Photo",
+    name: "Name and Surname",
   },
   ar: {
-    Hello: 'مرحبًا بالمستخدم',
-    Desc: 'شاهد مدى سهولة تنفيذ التوطين والدعم من اليمين إلى اليسار',
-  },
-  es: {
-    Hello: 'Hola usuaria',
-    Desc:
-      'Vea lo fácil que es implementar la localización y el soporte de derecha a izquierda',
+    region: "حدد منطقتك",
+    loginMsg: "يرجى إدخال عنوان البريد الإلكتروني وكلمة المرور لتسجيل الدخول",
+    noAccount: "ليس لديك حساب؟ انقر فوق زر التسجيل",
+    forgotPassword: "هل نسيت كلمة المرور",
+    login: "تسجيل الدخول",
+    signup: "سجل",
   },
 });
 
-//Set State is must to rerender UI for the change layout redux can also be used similarly
-changeLanguage = (lang) => {
-    i18n.setLanguage(lang);
+initializeRTL(localizedString);
 
-    this.setState({lang});
-  };
+export { localizedString };
+```
 
-//redux action, sample code using thunk as middleware
-export const setLanguage(lang) => {
-return async dispatch => {
-i18n.setLanguage(lang)
-dispatch({
-    type:SET_LANG
-    payload:lang
-})
-}
-}
+**2. Directly Initializing**
+This will have some problems with intellisense (I am working on its fix)
 
-render() {
-    const RTLStyles = RTL.getSheet(i18n);
-    return (
-      <SafeAreaView>
-        <View
-          style={[{height: '100%', width: '100%'}, RTLStyles.containerColumn]}>
-          <Text style={[{fontSize: 18}, RTLStyles.text]}>{i18n.Hello}</Text>
+```js
+//LocalizedConstants.js
+import { LocalizationString } from "react-native-easy-localization-and-rtl";
+const strings = LocalizationString({
+  en: {
+    region: "Select Your Region",
+    loginMsg: " Kindly enter email address and password to Login",
+    noAccount: "Don’t have an account? Click Sign Up button",
+    forgotPassword: "Forgot Password",
+    login: "Login",
+    signup: "Sign up",
+    email: "Email Address",
+    password: "Password",
+    addPhoto: "Add Photo",
+    name: "Name and Surname",
+    helloWorld: "Hello World",
+  },
+  ar: {
+    region: "حدد منطقتك",
+    loginMsg: "يرجى إدخال عنوان البريد الإلكتروني وكلمة المرور لتسجيل الدخول",
+    noAccount: "ليس لديك حساب؟ انقر فوق زر التسجيل",
+    forgotPassword: "هل نسيت كلمة المرور",
+    login: "تسجيل الدخول",
+    signup: "سجل",
+  },
+});
 
-          <View
-            style={{
-              flex: 1,
-              width: '50%',
-              marginBottom: 20,
-              backgroundColor: 'red',
-            }}></View>
-          <View
-            style={{
-              flex: 1,
-              width: '50%',
-              marginBottom: 20,
-              backgroundColor: 'red',
-            }}></View>
-          <View
-            style={{
-              flex: 1,
-              width: '50%',
-              marginBottom: 20,
-              backgroundColor: 'red',
-            }}></View>
-          <View
-            style={{
-              flex: 1,
-              width: '50%',
-              marginBottom: 20,
-              backgroundColor: 'red',
-            }}></View>
-          <View
-            style={[{width: '100%', height: '20%'}, RTLStyles.containerRow]}>
-            <TouchableOpacity
-              style={{
-                flex: 1,
-                height: '100%',
-                marginHorizontal: 8,
-                backgroundColor: 'green',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => {
-                this.changeLanguage('en');
-              }}>
-              <Text>en</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                flex: 1,
-                height: '100%',
-                marginHorizontal: 8,
-                backgroundColor: 'green',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => {
-                this.changeLanguage('ar');
-              }}>
-              <Text>ar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                flex: 1,
-                marginHorizontal: 8,
-                backgroundColor: 'green',
-                height: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-              onPress={() => {
-                this.changeLanguage('es');
-              }}>
-              <Text>es</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </SafeAreaView>
-    );
+export { strings };
+```
+
+### Using High Order Class Component
+
+**for localized string object you can use either the one passed in props or the object that u created**
+
+```js
+
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
+import {withRtl} from "react-native-easy-localization-and-rtl"
+//If you want to use localized object directly both are same instances so will always be same
+import {strings} from './LocalizedConstants.js'
+
+
+class App extends Component {
+
+  componentDidMount(){
+    console.log('Currently Active Language',this.props.language)
+    console.log('Currently Active Layout',this.props.isRtl)
+    console.log('Currently Active Styles',this.props.RtlStyles)
+
+
   }
 
+  onPress=()=>{
+    this.props.setLanguage('ar')
+  }
+
+  render() {
+    return (
+      <View style={{...this.props.RtlStyles.containerColumn}}>
+        <Text style={{...this.props.RtlStyles.text}} onPress={onPress}>{this.props.localizedString.name} </Text>
+        <Text>{strings.name} </Text>
+      </View>
+    )
+  }
+}
+
+export withRtl(App)
+
+
 ```
+
+### Using in Functional Component
+
+```js
+import React from "react";
+import { View, Text } from "react-native";
+import { useRtlContext } from "react-native-easy-localization-and-rtl";
+
+export default function App() {
+  const { RtlStyles, isRtl, language, setLanguage } = useRtlContext();
+
+  return (
+    <View style={{ ...RtlStyles.containerColumn }}>
+      <Text
+        style={{ ...this.props.RtlStyles.text }}
+        onPress={() => {
+          setLanguage("ar");
+        }}
+      >
+        {strings.name}
+      </Text>
+    </View>
+  );
+}
+```
+
+## Available Style Object
+
+**RtlStyles**
+containerColumn
+containerRow  
+text
+containerColumnInverse
+containerRowInverse
+textInverse
+flipHorizontal
 
 # APIs
 
 ## All Functions
 
 ### LocalizedStrings functions
+
+**Note: Dont use setLanguage directly on localizedString object**
 
 - setLanguage(languageCode) - to force manually a particular language
 - getLanguage() - to get the current displayed language
@@ -188,7 +219,7 @@ render() {
     question:"I'd like {0} and {1}, or just {0}"
   }
   ...
-  i18n.formatString(strings.question, strings.bread, strings.butter)
+  strings.formatString(strings.question, strings.bread, strings.butter)
 ```
 
 ### Overwrite Locale
@@ -196,7 +227,7 @@ render() {
 You might have default localized in the build but then download the latest localization strings from a server. Use setContent to overwrite the whole object. NOTE that this will remove all other localizations if used.
 
 ```js
-i18n.setContent({
+strings.setContent({
   en: {
     how: "How do you want your egg todajsie?",
     boiledEgg: "Boiled eggsie",
@@ -209,7 +240,7 @@ i18n.setContent({
 You can also only overwrite a specific language using
 
 ```
-i18n.setContent(Object.assign({},strings.getContent(),
+strings.setContent(Object.assign({},strings.getContent(),
 {
   en:{
     how:"How do you want your egg todajsie?",
